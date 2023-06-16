@@ -8,6 +8,7 @@ function checkTime() {
   year = parseInt(year);
 
   var resultElement = document.getElementById("result");
+  var lastResultElement = document.getElementById("lastResult");
 
   if (isNaN(day) || isNaN(month) || isNaN(year)) {
     resultElement.innerHTML = "Empty value";
@@ -35,6 +36,11 @@ function checkTime() {
     resultElement.innerHTML += "<br>Year is valid";
   } else {
     resultElement.innerHTML += "<br>Invalid year";
+  }
+  if (isValidDay && isValidMonth && isValidYear) {
+    lastResultElement.innerHTML = "<br>Date is valid";
+  } else {
+    lastResultElement.innerHTML = "<br>Date is invalid";
   }
 }
 
