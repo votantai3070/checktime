@@ -39,7 +39,7 @@ function daysInMonth(month, year) {
 
 // Tests
 test("Valid time", () => {
-  expect(isValidTime(32, 12, 2022)).toBe(false);
+  expect(isValidTime(22, 13, 2022)).toBe(true);
 });
 
 test("Invalid time", () => {
