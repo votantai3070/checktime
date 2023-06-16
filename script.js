@@ -8,7 +8,6 @@ function checkTime() {
   year = parseInt(year);
 
   var resultElement = document.getElementById("result");
-  var lastResultElement = document.getElementById("lastResult");
 
   if (isNaN(day) || isNaN(month) || isNaN(year)) {
     resultElement.innerHTML = "Empty value";
@@ -20,27 +19,21 @@ function checkTime() {
   var isValidMonth = isValidNumber(month) && month >= 1 && month <= 12;
   var isValidYear = isValidNumber(year) && year >= 0;
 
-  if (isValidDay) {
-    resultElement.innerHTML = "Day is valid";
-  } else {
+  if (!isValidDay) {
     resultElement.innerHTML = "Invalid day";
   }
 
-  if (isValidMonth) {
-    resultElement.innerHTML += "<br>Month is valid";
-  } else {
-    resultElement.innerHTML += "<br>Invalid month";
+  if (!isValidMonth) {
+    resultElement.innerHTML = "Invalid month";
   }
 
-  if (isValidYear) {
-    resultElement.innerHTML += "<br>Year is valid";
-  } else {
-    resultElement.innerHTML += "<br>Invalid year";
+  if (!isValidYear) {
+    resultElement.innerHTML = "Invalid year";
   }
   if (isValidDay && isValidMonth && isValidYear) {
-    lastResultElement.innerHTML = "<br>Date is valid";
+    resultElement.innerHTML += "<br>=> Date is valid";
   } else {
-    lastResultElement.innerHTML = "<br>Date is invalid";
+    resultElement.innerHTML += "<br>=> Date is invalid";
   }
 }
 
@@ -60,4 +53,12 @@ function daysInMonth(month, year) {
   } else {
     return 31;
   }
+}
+
+function reloadForm() {
+  document.getElementById("dayInput").value = "";
+  document.getElementById("monthInput").value = "";
+  document.getElementById("yearInput").value = "";
+
+  document.getElementById("result").innerHTML = "";
 }
